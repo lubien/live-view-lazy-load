@@ -8,6 +8,7 @@ defmodule LazyLoadExample.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Task.Supervisor, name: LazyLoadExampleWeb.TaskSupervisor},
       # Start the Telemetry supervisor
       LazyLoadExampleWeb.Telemetry,
       # Start the PubSub system
